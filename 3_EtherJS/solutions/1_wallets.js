@@ -39,8 +39,8 @@
 // be executed, until you tell the process to stop. 
 
 // This line will tell the process to stop.
-// process.exit(0);
-// console.log('I am sad line...I will not be printed to console :(');
+ process.exit(0);
+ console.log('I am sad line...I will not be printed to console :(');
 
 // a. Move the sad line above and below `process.exit(0);` to check that the
 // process stops where it is intended to. When you are done, comment out both
@@ -104,7 +104,7 @@ exercise = 1;
 
 require('dotenv').config();
 
-// exit();
+exit();
 
 // Exercise 2. Create .env file.
 ////////////////////////////////
@@ -127,7 +127,7 @@ exercise = 2;
 // See if it worked.
 console.log(process.env);
 
-// exit();
+exit();
 
 // Exercise 3. Check the content of the .env file.
 //////////////////////////////////////////////////
@@ -141,7 +141,7 @@ exercise = '3a';
 // if statement that print a warning message if empty.
 console.log(process.env.METAMASK_ACCOUNT_1);
 
-let privateKey = process.env.METAMASK_PRIVATE_KEY;
+let privateKey = process.env.METAMASK_1_PRIVATE_KEY;
 if (privateKey === "") {
     console.log('Missing private key, fix your .env file');
 }
@@ -154,8 +154,8 @@ if (privateKey === "") {
 exercise = '3b';
 
 let variablesToCheck = [
-    "INFURA_KEY", "INFURA_GOERLI", "INFURA_MAINNET",
-    "ALCHEMY_KEY", "ALCHEMY_GOERLI", "ALCHEMY_MAINNET",
+    "INFURA_KEY", "INFURA_GOERLI_API_URL", "INFURA_MAINNET_API_URL",
+    "ALCHEMY_KEY", "ALCHEMY_GOERLI_API_URL", "ALCHEMY_MAINNET_API_URL",
     "METAMASK_1_ADDRESS", "METAMASK_1_PRIVATE_KEY",
     "METAMASK_2_ADDRESS", "METAMASK_2_PRIVATE_KEY",
     "ETHERSCAN_KEY"
@@ -163,7 +163,7 @@ let variablesToCheck = [
 
 console.log('Num of variables in .env to check: ', variablesToCheck.length);
 
-// exit();
+exit();
 
 // c. Loop through all the elements of the array and check that the variable
 // is set and non-empty under `process.env`.
@@ -205,6 +205,8 @@ const ethers = require("ethers");
 // and the mnenomic phrase.
 
 const wallet = ethers.Wallet.createRandom();
+
+
 
 console.log();
 console.log("Address:", wallet.address);

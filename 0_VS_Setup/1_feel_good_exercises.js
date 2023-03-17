@@ -120,14 +120,14 @@ console.log('2. I would like to go below.');
 // Or check the keybindings link in the previous exercise to format only a
 // portion of the code.
 
-let a = 1234;      // Shift + Alt + F
-a++;
-if (a > 123) {
-    a--;
+let a = 1234; {   // Shift + Alt + F
+    a++;
+    if (a > 123) {
+        a--;
+    }
+    else a++
+    console.log(a);
 }
-else a++
-console.log(a);
-
 // Nothing happened? 
 // If so, your code (technically my code, if you just cloned it)
 // might have some errors. VS Code is a bit picky here, and 
@@ -184,8 +184,11 @@ if ((b + c) > 1) {
 // EXERCISE 6. Code Runner.
 ///////////////////////////
 // This is the final obstacle between you and the actual coding.
-
-// You got to have the Code Runner extension installed. 
+console.log('I want to say it 10 times:');
+for (let i = 0; i < 10; i++) {
+    console.log(i + 1 + ': ' + outcome);
+}
+console.log('Mike drop.');
 // If you haven't done it yet, what are you waiting for then? 
 // Open the Extensions pane on the left (usually, fourth icon from the top) and
 // search for "Code Runner". Install it
@@ -211,4 +214,4 @@ console.log('Mike drop.');
 // you need to highlight also the code that contains the definition of
 // the variable outcome at 6.a.
 
-// Congrats. You can now advance to the next exercises!
+// Congrats. You can now advance to the next exercises

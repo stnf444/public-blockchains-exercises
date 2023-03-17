@@ -45,7 +45,7 @@ const ethers = require("ethers");
 
 const providerKey = process.env.INFURA_KEY;
 
-const mainnetInfuraUrl = `${process.env.INFURA_MAINNET}${providerKey}`;
+const mainnetInfuraUrl = `${process.env.INFURA_MAINNET_API_URL}${providerKey}`;
 // console.log(mainnetInfuraUrl);
 const mainnetProvider = new ethers.JsonRpcProvider(mainnetInfuraUrl);
 
@@ -77,7 +77,7 @@ const network = async () => {
 };
 
 // which you can then call:
-// network();
+network();
 
 // The second (less compact) notation has the advantage that we can invoke
 // the code only when needed, so it is preferred in this exercise sheet.
@@ -110,7 +110,7 @@ const blockNum = async () => {
     console.log('Mainnet block number: ', blockNumber);
 };
 
-// blockNum();
+blockNum();
 
 // b. The Ethereum mainnet is one of the most secure blockchains in the world.
 // The testnets of Ethereum are a bit less secure because they might have 
@@ -120,8 +120,8 @@ const blockNum = async () => {
 // Connect to the Goerli test net, get the latest block number and print
 // the difference in chain length with mainnet.
 
-const goerliInfuraUrl = `${process.env.INFURA_GOERLI}${providerKey}`;
-// console.log(goerliInfuraUrl);
+const goerliInfuraUrl = `${process.env.INFURA_GOERLI_API_URL}${providerKey}`;
+console.log(goerliInfuraUrl);
 const goerliProvider = new ethers.JsonRpcProvider(goerliInfuraUrl);
 
 
@@ -137,7 +137,7 @@ const blockDiff = async () => {
                 ' blocks ahead');
 }
 
-// blockDiff();
+blockDiff();
 
 
 // Exercise 3. Block time.
@@ -276,7 +276,7 @@ const blockInfo = async () => {
 
 };
 
-// blockInfo();
+blockInfo();
 
 // Exercise 5. ENS names.
 //////////////////////////
@@ -292,7 +292,7 @@ const ens = async () => {
     console.log(ensName);
 };
 
-// ens();
+ens();
 
 
 // Exercise 6. Get ETH balance.
@@ -314,7 +314,7 @@ const balance = async (ensName = "unima.eth") => {
 
     // Get the balance for "unima.eth".
     let bal = await goerliProvider.getBalance(ensName);
-    // console.log(bal);
+ console.log(bal);
 
     // Nicely formatted.
     console.log(ensName, "has", ethers.formatEther(bal), "ETH");
@@ -327,7 +327,7 @@ const balance = async (ensName = "unima.eth") => {
 
 };
 
-// balance("vitalik.eth");
+balance("vitalik.eth");
 
 
 // Exercise 7. Get ERC20 Balance.
@@ -349,7 +349,7 @@ const linkAddress = '0x326c977e6efc84e512bb9c30f76e30c160ed06fb';
 // the LINK ABI is stored in this directory, under "link_abi.json";
 
 // Note: the path must be adapted to the folder where your run this code.
-const linkABI = require('../link_abi.json');
+const linkABI = require('3_EtherJS\link_abi.json');
 
 // Now your task. Get the balance for LINK for "unima.eth" and "vitalik.eth".
 // Hint: you need first to create a Contract object via `ethers.Contract`, 
@@ -364,6 +364,6 @@ const link = async () => {
 };
 
 
-// link();
+link();
 
 

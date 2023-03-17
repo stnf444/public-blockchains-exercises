@@ -39,8 +39,8 @@
 // be executed, until you tell the process to stop. 
 
 // This line will tell the process to stop.
+console.log('I am sad line...I will not be printed to console :(');    // can be moved with Alt + Arrow
 process.exit(0);
-console.log('I am sad line...I will not be printed to console :(');
 
 // a. Move the sad line above and below `process.exit(0);` to check that the
 // process stops where it is intended to. When you are done, comment out both
@@ -51,7 +51,12 @@ console.log('I am sad line...I will not be printed to console :(');
 // Hint: never created a function in JS? Check this page:
 // https://javascript.info/function-basics
 
-let exercise = 0;
+let exercise = 1;
+
+function exit () {
+    console.log ('Process stops here, Excercise '   + exercise + 'completed');
+    process.exit(0);
+}
 
 // Your code here!
 
@@ -139,7 +144,17 @@ exercise = '3b';
 
 // Your code here!
 
-// exit();
+if (process.env.METAMASK_ACCOUNT_1 == "") {
+
+    console.log("VARIABLE MISSING")
+}
+
+else ((process.env.METAMASK_ACCOUNT_1 !== "")) {
+
+console.log ("SMTH")
+}
+
+exit();
 
 // c. Loop through all the elements of the array and check that the variable
 // is set and non-empty under `process.env`.

@@ -75,7 +75,7 @@ const sign = async (message = 'Hello world') => {
     }
 };
 
-// sign();
+sign();
 
 // Exercise 3. Connect to the blockchain. 
 /////////////////////////////////////////
@@ -88,15 +88,15 @@ const sign = async (message = 'Hello world') => {
 
 const connect = async() => {
     signer = await signer.connect(goerliProvider);
-    // console.log(signer);
+    console.log(signer);
 
     let nonce = await signer.getNonce();
-    // Equivalent to.
-    // let nonce = await goerliProvider.getTransactionCount("unima.eth");
+    //Equivalent to.
+    //let nonce = await goerliProvider.getTransactionCount("unima.eth");
     console.log('The nonce is', nonce);
 };
 
-// connect();
+connect();
 
 // c. Replace the signer created above at exercise 1 with one that takes the 
 // Goerli provider as second parameter. This is necessary even
@@ -139,7 +139,7 @@ const sendTransaction = async () => {
         value: ethers.parseEther("0.01")
     });
 
-    // console.log(tx);
+    console.log(tx);
     
     console.log('Transaction is in the mempool...');
     await tx.wait();
@@ -155,7 +155,7 @@ const sendTransaction = async () => {
     console.log('Balance for', account2, 'changed from', b2, 'to', updatedB2);
 };
 
-// sendTransaction();
+sendTransaction();
 
 
 // Exercise 5. Meddling with Gas.
@@ -239,7 +239,7 @@ const checkGasPrices = async () => {
             value: ethers.parseEther("0.01"),
         });
     
-        // console.log(tx);
+        console.log(tx);
     
         console.log('Gas Limit', tx.gasLimit);
         console.log('Max Fee per Gas (GWEI)', ethers.formatUnits(tx.maxFeePerGas, 'gwei'));
@@ -247,7 +247,7 @@ const checkGasPrices = async () => {
 
         console.log('---');
         const feeData = await goerliProvider.getFeeData();
-        // console.log(feeData)
+        console.log(feeData)
     
         console.log('Legacy Gas Price (GWEI)', ethers.formatUnits(feeData.gasPrice, 'gwei'));
         console.log('Max Fee per Gas (GWEI)', ethers.formatUnits(feeData.maxFeePerGas, 'gwei'));
@@ -257,14 +257,14 @@ const checkGasPrices = async () => {
         const lastBlock = await goerliProvider.getBlock("latest");
         console.log('Base Fee Previous Block (GWEI)', ethers.formatUnits(lastBlock.baseFeePerGas, 'gwei'));
 
-        // maxFeePerGas = (2 * baseFeePerGas) + maxPriorityFeePerGas
+        maxFeePerGas = (2 * baseFeePerGas) + maxPriorityFeePerGas
         console.log('');
 
     }, 1000);
 
 };
 
-// checkGasPrices();
+checkGasPrices();
 
 
 // d. e.
@@ -272,7 +272,7 @@ const sendCheaperTransaction = async () => {
 
 
     const feeData = await goerliProvider.getFeeData();
-    // console.log(feeData)
+    console.log(feeData)
 
     console.log('Legacy Gas Price (GWEI)', ethers.formatUnits(feeData.gasPrice, 'gwei'));
     console.log('Max Fee per Gas (GWEI)', ethers.formatUnits(feeData.maxFeePerGas, 'gwei'));
@@ -291,7 +291,7 @@ const sendCheaperTransaction = async () => {
 
 };
 
-// sendCheaperTransaction();
+sendCheaperTransaction();
 
 
 
