@@ -51,12 +51,18 @@ process.exit(0);
 // Hint: never created a function in JS? Check this page:
 // https://javascript.info/function-basics
 
+<<<<<<< HEAD
 let exercise = 1;
 
 function exit () {
     console.log ('Process stops here, Excercise '   + exercise + 'completed');
     process.exit(0);
 }
+=======
+// Hint: German keyboard curly brackets: Alt-gr-7 (open), Alt-gr-8 (close).
+
+let exercise = 0;
+>>>>>>> b3d44df3652d5519372960e677199be7aa504faa
 
 // Your code here!
 

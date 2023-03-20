@@ -1,4 +1,4 @@
-// Ethers JS: First interaction with Hardhat blockchain.
+// Ethers JS: First interaction with (not) UniMa blockchain.
 ////////////////////////////////////////////////////////////
 
 // Exercise 0. Load dependencies and network provider.
@@ -7,54 +7,55 @@
 // a. Require the `dotenv` and `ethers` packages.
 // Hint: As you did multiple times now.
 
-// For execution with Code Runner.
 require('dotenv').config();
-
-<<<<<<< HEAD
-console.log(process.env);
-=======
-// console.log(process.env);
->>>>>>> b3d44df3652d5519372960e677199be7aa504faa
-
 const ethers = require("ethers");
 
+// Exercise 1. Create a JSON RPC Provider for the (not) UniMa Blockchain.
+/////////////////////////////////////////////////////////////////////////
 
-// Exercise 1. Create a JSON RPC Provider for the Hardhat blockchain.
-/////////////////////////////////////////////////////////////////////
+// It seems we cannot (yet) call our blockchain the official Uni Mannheim
+// blockchain, so we will reference it throughtout the exercises as the
+// (not) UniMa Blockchain.
 
-// Hint: you will find the info printed to console after you start the hardhat
-// blockchain.
+// a. Add the RPC endpoints to the .env with names:
+// - NOT_UNIMA_URL_1
+// - NOT_UNIMA_URL_2
 
-const hardhatUrl = "http://127.0.0.1:8545";
-const hardhatProvider = new ethers.JsonRpcProvider(hardhatUrl);
+// Hint: you find the RPC endpoints on the slides in ILIAS.
+
+// b. Create the JSON RPC provider object.
+// Hint: only accessible within UniMa network.
+
+const notUniMaUrl = process.env.NOT_UNIMA_URL_1;
+const notUniMaProvider = new ethers.JsonRpcProvider(notUniMaUrl);
 
 // Exercise 2. Let's query the provider.
 ////////////////////////////////////////
 
-// Hardhat Blockchain si too long. Let's call it NUMA.
+// (not) UniMa Blockchain si too long. Let's call it NUMA.
 // Print to console the network name, chain id, and block number of NUMA.
 
 const networkInfo = async () => {
-    let net = await hardhatProvider.getNetwork();
-    console.log('HH Info:');
+    let net = await notUniMaProvider.getNetwork();
+    console.log('NUMA Info:');
     console.log('Network name: ', net.name);
     console.log('Network chain id: ', Number(net.chainId));
 
-    let blockNumber = await hardhatProvider.getBlockNumber();
+    let blockNumber = await notUniMaProvider.getBlockNumber();
     console.log('Block number: ', blockNumber);
 };
 
 // networkInfo();
 
 
-// Exercise 3. Connect a signer to the Hardhat blockchain.
-//////////////////////////////////////////////////////////
+// Exercise 3. Connect a signer to the (not) UniMa blockchain.
+//////////////////////////////////////////////////////////////
 
-// Hint: you will find the info printed to console after you start the hardhat
-// blockchain.
+// a. Use the same non-sensitive private key used in 3_signer.js.
 
-let hhPrivateKey = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
-const signer = new ethers.Wallet(hhPrivateKey, hardhatProvider);
+
+const signer = new ethers.Wallet(process.env.METAMASK_1_PRIVATE_KEY,
+                                 notUniMaProvider);
 
 // b. Print the next nonce necessary to send a transaction.
 // Hint: .getNonce()
@@ -66,6 +67,9 @@ const getNonce = async() => {
 };
 
 // getNonce();
+
+// Checkpoint. Is the nonce in the (not) Unima blockchain different
+// than in Goerli?
 
 
 // Exercise 4. Check gas.
@@ -79,9 +83,9 @@ const getNonce = async() => {
 
 const checkBalance = async () => {
 
-    let balance = await hardhatProvider.getBalance(signer.address);
+    let balance = await notUniMaProvider.getBalance(signer.address);
 
-    console.log('My balance is ' + ethers.formatEther(balance) + ' ETH.');
+    console.log('My balance is ' + ethers.formatEther(balance) + ' NUMETH.');
 };
 
 // checkBalance();
@@ -95,17 +99,12 @@ const account2 = process.env.METAMASK_2_ADDRESS;
 
 const sendTransaction = async () => {
 
-    const hardhatSigner = signer;
-
-    console.log(hardhatSigner.address, account2)
-
-    let b1 = await hardhatProvider.getBalance(hardhatSigner.address);
-    let b2 = await hardhatProvider.getBalance(account2);
+    let b1 = await notUniMaProvider.getBalance(signer.address);
+    let b2 = await notUniMaProvider.getBalance(account2);
     b1 = ethers.formatEther(b1);
     b2 = ethers.formatEther(b2);
-    
 
-    tx = await hardhatSigner.sendTransaction({
+    tx = await signer.sendTransaction({
         to: account2,
         value: ethers.parseEther("0.01")
     });
@@ -117,8 +116,8 @@ const sendTransaction = async () => {
 
     console.log('Transaction mined!');
 
-    let updatedB1 = await hardhatProvider.getBalance(signer.address);
-    let updatedB2 = await hardhatProvider.getBalance(account2);
+    let updatedB1 = await notUniMaProvider.getBalance(signer.address);
+    let updatedB2 = await notUniMaProvider.getBalance(account2);
     updatedB1 = ethers.formatEther(updatedB1);
     updatedB2 = ethers.formatEther(updatedB2);
 
@@ -127,4 +126,6 @@ const sendTransaction = async () => {
 };
 
 // sendTransaction();
+
+// Checkpoint. Can you send your ETH from NUMA to Goerli?
 
