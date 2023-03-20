@@ -10,11 +10,7 @@
 // For execution with Code Runner.
 require('dotenv').config();
 
-<<<<<<< HEAD
 console.log(process.env);
-=======
-// console.log(process.env);
->>>>>>> b3d44df3652d5519372960e677199be7aa504faa
 
 const ethers = require("ethers");
 
