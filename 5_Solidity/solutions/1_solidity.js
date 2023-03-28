@@ -144,7 +144,7 @@ async function readVar() {
   
     // Print the global variable you just created.
   
-    // console.log(contractName + " globalVar:", await lock.globalVar());
+    console.log(contractName + " globalVar:", await lock.globalVar());
     // Constant (followed the convention).
     console.log(contractName + " GLOBAL_VAR:", await lock.GLOBAL_VAR());
     
@@ -152,7 +152,7 @@ async function readVar() {
   
   };
   
-  // readVar();
+  readVar();
   
   // Bonus. Exercise 2B. Utility Function.
   ////////////////////////////////////////

@@ -100,7 +100,7 @@ async function main() {
 
   console.log("HH Signer address:", hhSigner.address);
 
-  // return
+  return
 
   // c. Get your new contract. Hardhat Ethers automatically fetches the ABI from
   // the artifacts, so you don't need to specify it. Use the method
@@ -139,7 +139,7 @@ async function main() {
 
   };
 
-  // const lock2 = await getContractManual();
+  const lock2 = await getContractManual();
   
   // e. Print out the public variables of the contract: owner and unlockTime.
   // Hint: Public variables have automatic getters that can be invoked.
@@ -164,7 +164,7 @@ async function main() {
     console.log(contractName + " unlock date:", date);
   };
 
-  // await readContract();
+await readContract();
 
   // Exercise 3. Interact with your new Solidity contract (WRITE).
   ////////////////////////////////////////////////////////////////
