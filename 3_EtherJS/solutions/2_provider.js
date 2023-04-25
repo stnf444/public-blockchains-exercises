@@ -46,7 +46,7 @@ const ethers = require("ethers");
 const providerKey = process.env.INFURA_KEY;
 
 const mainnetInfuraUrl = `${process.env.INFURA_MAINNET_API_URL}${providerKey}`;
-// console.log(mainnetInfuraUrl);
+console.log(mainnetInfuraUrl);
 const mainnetProvider = new ethers.JsonRpcProvider(mainnetInfuraUrl);
 
 // b. Verify that the network's name is "mainnet" and the chain id that theis 1.
