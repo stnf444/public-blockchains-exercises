@@ -100,7 +100,7 @@ const rawTransactionBasic = async () => {
     console.log();
 
     // Fill in this value with the encoded signature of reset():
-    let encodedSignature = "ENCODED_SIGNATURE_HERE"; 
+    let encodedSignature = "d826f88f"; 
     let calldata = "0x" + encodedSignature;
 
     // Raw transaction.
@@ -116,7 +116,7 @@ const rawTransactionBasic = async () => {
     
 };
 
-// rawTransactionBasic();
+rawTransactionBasic();
 
 
 // Exercise 2: Raw transaction with no parameters: do your own encoding.
