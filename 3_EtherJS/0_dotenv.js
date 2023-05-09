@@ -34,7 +34,7 @@ console.log(pathToDotEnv);
 // Hint: use path.join(...) to build a relative path to the .env file. 
 
 // Edit this line, then load the .env file:
-// pathToDotEnv = path.join(...);
+pathToDotEnv = path.join(...);
 console.log(pathToDotEnv);
 
 // Your code here.
