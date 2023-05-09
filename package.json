@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "dotenv": "^16.0.3",
@@ -13,4 +14,11 @@
 =======
   "name": "hardhat-project"
 >>>>>>> 29c3c46c297cd0b2101f5a84d1031b436a635e7e
+=======
+  "name": "hardhat-project",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "hardhat": "^2.12.2"
+  }
+>>>>>>> 247625f2451efc66d712fea7e4c89c66edda38a2
 }
